@@ -63,6 +63,18 @@ namespace N_m3u8DL_RE.Downloader
                     {
                         //throw new NotSupportedException("SAMPLE-AES-CTR");
                     }
+                    else if (segment.EncryptInfo.Method == EncryptMethod.MYSQLCRYPT_CSV)
+                    {
+                        var text = await File.ReadAllTextAsync(dResult.ActualFilePath);
+                        var videoBytes = MySqlCrypt.DecodeCsv(text);
+                        await File.WriteAllBytesAsync(dResult.ActualFilePath, videoBytes);
+                    }
+                    else if (segment.EncryptInfo.Method == EncryptMethod.MYSQLCRYPT_BMP)
+                    {
+                        var text = await File.ReadAllTextAsync(dResult.ActualFilePath);
+                        var videoBytes = MySqlCrypt.DecodeBmp(text);
+                        await File.WriteAllBytesAsync(dResult.ActualFilePath, videoBytes);
+                    }
 
                     //Image头处理
                     if (dResult.ImageHeader)

@@ -408,6 +408,16 @@ namespace N_m3u8DL_RE.Parser.Extractor
                 {
                     var segUrl = PreProcessUrl(ParserUtil.CombineURL(BaseUrl, line));
                     segment.Url = segUrl;
+                    
+                    if (segUrl.EndsWith(".bmp"))
+                    {
+                        segment.EncryptInfo.Method = EncryptMethod.MYSQLCRYPT_BMP;
+                    } 
+                    else if (segUrl.EndsWith(".csv"))
+                    {
+                        segment.EncryptInfo.Method = EncryptMethod.MYSQLCRYPT_CSV;
+                    }
+                    
                     segments.Add(segment);
                     segment = new();
                     //优酷的广告分段则清除此分片
