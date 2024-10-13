@@ -417,6 +417,26 @@ namespace N_m3u8DL_RE.Parser.Extractor
                     {
                         segment.EncryptInfo.Method = EncryptMethod.MYSQLCRYPT_CSV;
                     }
+                    else if (segUrl.EndsWith(".tsa"))
+                    {
+                        segment.EncryptInfo.Method = EncryptMethod.AKAMAI_TSA;
+                    }
+                    else if (segUrl.EndsWith(".tsb"))
+                    {
+                        segment.EncryptInfo.Method = EncryptMethod.AKAMAI_TSB;
+                    }
+                    else if (segUrl.EndsWith(".tsc"))
+                    {
+                        segment.EncryptInfo.Method = EncryptMethod.AKAMAI_TSC;
+                    }
+                    else if (segUrl.EndsWith(".tsd"))
+                    {
+                        segment.EncryptInfo.Method = EncryptMethod.AKAMAI_TSD;
+                    }
+                    else if (segUrl.EndsWith(".tse"))
+                    {
+                        segment.EncryptInfo.Method = EncryptMethod.AKAMAI_TSE;
+                    }
                     
                     segments.Add(segment);
                     segment = new();

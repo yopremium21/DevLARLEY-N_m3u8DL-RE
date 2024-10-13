@@ -17,6 +17,11 @@ namespace N_m3u8DL_RE.Common.Enum
         CHACHA20,
         MYSQLCRYPT_CSV,
         MYSQLCRYPT_BMP,
+        AKAMAI_TSA,
+        AKAMAI_TSB,
+        AKAMAI_TSC,
+        AKAMAI_TSD,
+        AKAMAI_TSE,
         UNKNOWN
     }
 }

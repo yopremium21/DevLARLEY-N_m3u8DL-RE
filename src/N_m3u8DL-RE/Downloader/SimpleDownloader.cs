@@ -75,6 +75,51 @@ namespace N_m3u8DL_RE.Downloader
                         var videoBytes = MySqlCrypt.DecodeBmp(text);
                         await File.WriteAllBytesAsync(dResult.ActualFilePath, videoBytes);
                     }
+                    else if (segment.EncryptInfo.Method == EncryptMethod.AKAMAI_TSA)
+                    {
+                        var text = await File.ReadAllTextAsync(dResult.ActualFilePath);
+                        var b64Text = AkamaiPlayerIn.DecodeTsa(text);
+                        var decodedText = Convert.FromBase64String(b64Text);
+                        var key = segment.EncryptInfo.Key;
+                        var iv = segment.EncryptInfo.IV;
+                        AkamaiPlayerIn.DecryptSegment(decodedText, key!, iv!, dResult.ActualFilePath, DownloaderConfig.MyOptions.ThreadCount);
+                    }
+                    else if (segment.EncryptInfo.Method == EncryptMethod.AKAMAI_TSB)
+                    {
+                        var text = await File.ReadAllTextAsync(dResult.ActualFilePath);
+                        var b64Text = AkamaiPlayerIn.DecodeTsb(text);
+                        var decodedText = Convert.FromBase64String(b64Text);
+                        var key = segment.EncryptInfo.Key;
+                        var iv = segment.EncryptInfo.IV;
+                        AkamaiPlayerIn.DecryptSegment(decodedText, key!, iv!, dResult.ActualFilePath, DownloaderConfig.MyOptions.ThreadCount);
+                    }
+                    else if (segment.EncryptInfo.Method == EncryptMethod.AKAMAI_TSC)
+                    {
+                        var text = await File.ReadAllTextAsync(dResult.ActualFilePath);
+                        var b64Text = AkamaiPlayerIn.DecodeTsc(text);
+                        var decodedText = Convert.FromBase64String(b64Text);
+                        var key = segment.EncryptInfo.Key;
+                        var iv = segment.EncryptInfo.IV;
+                        AkamaiPlayerIn.DecryptSegment(decodedText, key!, iv!, dResult.ActualFilePath, DownloaderConfig.MyOptions.ThreadCount);
+                    }
+                    else if (segment.EncryptInfo.Method == EncryptMethod.AKAMAI_TSD)
+                    {
+                        var text = await File.ReadAllTextAsync(dResult.ActualFilePath);
+                        var b64Text = AkamaiPlayerIn.DecodeTsd(text);
+                        var decodedText = Convert.FromBase64String(b64Text);
+                        var key = segment.EncryptInfo.Key;
+                        var iv = segment.EncryptInfo.IV;
+                        AkamaiPlayerIn.DecryptSegment(decodedText, key!, iv!, dResult.ActualFilePath, DownloaderConfig.MyOptions.ThreadCount);
+                    }
+                    else if (segment.EncryptInfo.Method == EncryptMethod.AKAMAI_TSE)
+                    {
+                        var text = await File.ReadAllTextAsync(dResult.ActualFilePath);
+                        var b64Text = AkamaiPlayerIn.DecodeTse(text);
+                        var decodedText = Convert.FromBase64String(b64Text);
+                        var key = segment.EncryptInfo.Key;
+                        var iv = segment.EncryptInfo.IV;
+                        AkamaiPlayerIn.DecryptSegment(decodedText, key!, iv!, dResult.ActualFilePath, DownloaderConfig.MyOptions.ThreadCount);
+                    }
 
                     //Image头处理
                     if (dResult.ImageHeader)
