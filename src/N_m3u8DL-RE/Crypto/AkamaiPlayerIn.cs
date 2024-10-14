@@ -136,7 +136,7 @@ public class AkamaiPlayerIn
     {
         public void FireEvent(byte[] data, string fileName)
         {
-            File.WriteAllBytes(fileName[..^3], data);
+            File.WriteAllBytes(fileName[..^4], data);
         }
     }
     
