@@ -72,12 +72,6 @@ jobs:
     steps:
       - run: apt-get update
       - run: apt-get install -y curl wget
-      - run: apt-get remove nodejs
-      - run: apt-get remove npm
-      - run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
-      - run: chmod +x ~/.nvm/nvm.sh
-      - run: echo "source ~/.nvm/nvm.sh" >> ~/.bashrc
-      - run: source ~/.bashrc
       - uses: actions/checkout@v1
       - name: Set up dotnet
         uses: actions/setup-dotnet@v3
