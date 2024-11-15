@@ -67,7 +67,7 @@ jobs:
   # Repeat similar steps for linux-x64, linux-arm64, and mac-x64-arm64 jobs
   build-linux-x64:
     runs-on: ubuntu-latest
-    container: ubuntu:18.04
+    container: ubuntu:20.04
 
     steps:
       - run: apt-get update
