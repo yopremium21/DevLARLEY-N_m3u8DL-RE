@@ -71,7 +71,7 @@ jobs:
 
     steps:
       - run: apt-get update
-      - run: apt-get install -y curl wget
+      - run: apt-get install -y curl wget clang gcc
       - uses: actions/checkout@v1
       - name: Set up dotnet
         uses: actions/setup-dotnet@v3
