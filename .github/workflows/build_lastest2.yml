@@ -24,7 +24,7 @@ env:
 
 jobs:
   build-win-x64-arm64:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v1
