@@ -95,7 +95,7 @@ jobs:
 
   build-linux-arm64:
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/dotnet-buildtools/prereqs:ubuntu-18.04-cross-arm64-20220312201346-b2c2436
+    container: mcr.microsoft.com/dotnet-buildtools/prereqs:ubuntu-20.04-cross-arm64
 
     steps:
       - uses: actions/checkout@v1
