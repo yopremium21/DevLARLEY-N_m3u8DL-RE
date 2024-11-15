@@ -24,11 +24,11 @@ env:
 
 jobs:
   build-win-x64-arm64:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1
-      
+
       - name: Install .NET SDK
         run: |
           curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --version ${{ env.DOTNET_SDK_VERSION }}
