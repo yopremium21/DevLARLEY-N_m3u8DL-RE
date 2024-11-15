@@ -92,11 +92,11 @@ public class AkamaiPlayerIn
     
     public static void DecryptSegment(byte[] bytes, byte[] key, byte[] iv, string fileName, int threadCount)
     {
-        if (threadCount != 1)
-        {
-            Logger.Error("Only single thread operations are supported. Use --thread-count 1");
-            Environment.Exit(1);
-        }
+        // if (threadCount != 1)
+        // {
+        //     Logger.Error("Only single thread operations are supported. Use --thread-count 1");
+        //     Environment.Exit(1);
+        // }
         var eventClass = new EventClass();
         var context = new Context();
         
