@@ -72,8 +72,8 @@ jobs:
     steps:
       - run: apt-get update
       - run: apt-get install -y curl wget
-      - run: sudo apt-get remove nodejs
-      - run: sudo apt-get remove npm
+      - run: apt-get remove nodejs
+      - run: apt-get remove npm
       - run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
       - run: chmod +x ~/.nvm/nvm.sh
       - run: source ~/.bashrc
