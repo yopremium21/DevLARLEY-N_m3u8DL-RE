@@ -28,6 +28,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+      
+      - name: Install .NET SDK
+        run: |
+          curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --version ${{ env.DOTNET_SDK_VERSION }}
+          echo "::add-path::$(pwd)/.dotnet"
 
       - name: Set up dotnet
         uses: actions/setup-dotnet@v3
